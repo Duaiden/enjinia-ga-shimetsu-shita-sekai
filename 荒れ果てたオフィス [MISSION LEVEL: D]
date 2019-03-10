@@ -1,0 +1,36 @@
+/*
+  あなたは書類の整理をしています。 
+  書類には 1 から 3 までの重要度 e が設定されています。数字が大きいほど重要な書類とされています。
+  書類のタイトル文字列 S_i と重要度 e_i が n 件与えられます。 
+  重要度が 3 の書類のタイトルのみを入力された順に出力してください。
+*/
+
+#include <stdio.h>
+
+int readInt(){
+    int temp;
+    scanf("%d", &temp);
+    return temp;
+}
+
+int main(void){
+    int n;
+    n = readInt();
+    
+    char str[1000];
+    char names[100];
+    int lvl;
+    
+    fgets(str, sizeof(str), stdin);     // To eat the empty line
+    
+    for (int i = 0; i < n; i ++) {
+        fgets(str, sizeof(str), stdin);
+        sscanf(str, "%s %d", &names, &lvl);
+
+        if(lvl == 3){
+            printf("%s\n", names);
+        }
+    }
+
+    return 0;
+}
