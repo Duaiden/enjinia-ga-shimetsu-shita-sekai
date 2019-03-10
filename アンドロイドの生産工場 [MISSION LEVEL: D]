@@ -1,0 +1,25 @@
+/*
+  ある暗号化された文字列 S が与えられます。 
+  文字列 S のうち奇数文字目を取り出せば解読できることがわかりました。 
+  文字列 S が与えられるので奇数文字目の文字を取り出して解読した文字列を出力してください。
+*/
+#include <stdio.h>
+int main(void){
+    char str[100];
+    int strp = 0;
+    
+    for (int i = 0; i < 99; i++) {
+        char temp;
+        if(i % 2 == 0){
+            scanf("%c", &temp);
+            str[strp] = temp;
+            strp ++;
+        }
+        else{
+            scanf("%c", &temp);
+        }
+    }
+
+    printf("%s", str);
+    return 0;
+}
