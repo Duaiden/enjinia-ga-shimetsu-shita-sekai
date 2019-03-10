@@ -1,0 +1,25 @@
+/*
+  あなたは残高からお金を引き出すプログラムを作成しています。
+  残高 n と引き出したい額 w が与えられます。
+  この時、引き出し額が残高を上回ってマイナスになる場合は "error" と出力し、引き出せる場合は残高を出力するプログラムを作成してください。
+*/
+#include <stdio.h>
+
+int readInt(){
+    int temp;
+    scanf("%d", &temp);
+    return temp;
+}
+
+int main(void){
+    int deposit = readInt();
+    int takeOut = readInt();
+    
+    if(deposit - takeOut < 0){
+        printf("error");        
+    }
+    else{
+        printf("%d", deposit- takeOut);
+    }
+    
+}
