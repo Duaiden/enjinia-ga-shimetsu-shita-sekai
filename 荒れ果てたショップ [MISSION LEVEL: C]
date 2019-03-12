@@ -1,0 +1,40 @@
+/*
+  あなたは今ファイルの管理をしようとしています。 
+  各ファイルは番号で管理されていますが、一目でどの番号かわかるように、番号の左に適当な数の 0 を埋め込んで、番号の長さを固定することにしました。
+  例えば、番号の長さを 3 で固定したい場合、0 は 000, 4 は 004, 13 は 013, 144 は 144 というようにファイル番号をつけます。
+  3 つの整数 N, A, B が与えられます。 
+  A 以上 B 以下の数それぞれについて、番号の長さが N にするようなゼロ埋めをするとファイル番号はどのように表示されるかを出力してください。
+*/
+
+#include <stdio.h>
+
+void padzero(int n, int input){
+    int cnt = 0;
+    char temp[n], ret[n];
+    sprintf(temp, "%d", input);
+    
+    for (int i = 0; i < n; i++) {
+        if(!('0' <= temp[i] && temp[i] <= '9')){
+            cnt ++;
+        }
+    }
+    for (int i = n-1, j = 0; i >= 0; i--) {
+        if ('0' <= temp[i] && temp[i] <= '9'){
+            ret[i+cnt] = temp[i];
+        }
+        else {
+            ret[j] = '0';
+            j ++;
+        }
+    }
+    printf("%s\n", ret);
+}
+
+int main(void){
+    int n, x, y;
+    scanf("%d %d %d", &n, &x, &y);
+    
+    for (int i = x, j = 0; i <= y; i++, j++){
+        padzero(n, i);
+    }
+}
