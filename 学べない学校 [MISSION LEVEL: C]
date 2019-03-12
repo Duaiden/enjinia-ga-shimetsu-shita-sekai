@@ -1,0 +1,49 @@
+#include <stdio.h>
+#define _if(x, y) if(p1 == x && p2 == y)
+#define _elif(x, y) else if(p1 == x && p2 == y)
+
+int main(void){
+    int n;
+    int p1w = 0, p2w = 0;
+    char str[5];
+    char p1, p2;
+    scanf("%d",&n);
+    fgets(str, sizeof(str), stdin);
+
+
+    for (int i = 0; i < n; i++) {
+        fgets(str, sizeof(str), stdin);
+        sscanf(str, "%c %c", &p1, &p2);
+
+        _if('g', 'c'){
+            p1w ++;
+        }
+        _elif('g', 'g'){
+            // do nothing
+        }
+        _elif('g', 'p'){
+            p2w ++;
+        }
+        _elif('c', 'g'){
+            p2w ++;
+        }
+        _elif('c', 'c'){
+            // do nothing
+        }
+        _elif('c', 'p'){
+            p1w ++;
+        }
+        _elif('p', 'g'){
+            p1w ++;
+        }
+        _elif('p', 'c'){
+            p2w ++;
+        }
+        _elif('p', 'p'){
+            //do nothing
+        }
+        
+    }
+    printf("%d\n%d", p1w, p2w);
+    return 0;
+}
