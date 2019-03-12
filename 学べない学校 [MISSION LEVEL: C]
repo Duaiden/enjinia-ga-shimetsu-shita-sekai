@@ -45,5 +45,4 @@ int main(void){
         
     }
     printf("%d\n%d", p1w, p2w);
-    return 0;
 }
