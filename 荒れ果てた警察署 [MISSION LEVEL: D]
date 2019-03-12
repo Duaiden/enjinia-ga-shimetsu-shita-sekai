@@ -16,6 +16,4 @@ int main(void){
     char result = (char) (a+48);
     
     printf("%c", result);
-
-    return 0;
 }
