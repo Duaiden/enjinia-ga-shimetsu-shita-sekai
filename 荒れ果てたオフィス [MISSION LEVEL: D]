@@ -31,6 +31,5 @@ int main(void){
             printf("%s\n", names);
         }
     }
-
     return 0;
 }
