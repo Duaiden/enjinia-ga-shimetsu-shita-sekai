@@ -1,0 +1,57 @@
+/*
+  昔この公園ではある競技の大会がよく開催されていました。各試合結果の記録が見つかりましたが、どのチームが優勝したかの記録は欠損しています。 
+  そこであなたは各試合結果から優勝チームを調べるプログラムを作成することにしました。
+  大会は勝ち点方式の総当り戦で行います。勝つと2点、引き分けで1点、負けると0点勝ち点が増えます。 
+  すべての試合が終わったあと、勝ち点が一番多いチームが優勝です。
+  大会の参加人数と、試合結果が入力されたときに、何番目のチームが勝ち点いくつの何勝何敗何引き分けで優勝したか出力するプログラムを書いてください。
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int* score(char* str, int num, int n){
+    int *ret = (int*)malloc(5 * sizeof(int));
+    for (int i = 0; i < 5; i++) {
+        ret[i] = 0;
+    }
+    ret[0] = num;
+    for (int i = 0; i < n; i++) {
+        if(str[i] == 'W'){
+            ret[1] += 2;
+            ret[2] ++;
+        }
+        else if(str[i] == 'D'){
+            ret[1] += 1;
+            ret[3] ++;
+        }
+        else if(str[i] == 'L'){
+            ret[4] ++;
+        }
+    }
+    return ret;
+}
+
+int main(void){
+    char str[100];
+    int winner[5];
+    int tempwinner[5];
+    int n;
+    
+    scanf("%d", &n);
+    fgets(str, sizeof(str), stdin);
+    fgets(str, sizeof(str), stdin);
+    memcpy(winner, score(str, 1, n), 5*sizeof(int));
+    
+    for (int i = 1; i < n; i++) {
+        fgets(str, sizeof(str), stdin);
+        memcpy(tempwinner, score(str, i+1, n), 5*sizeof(int));
+        if(tempwinner[1] >= winner[1]){
+            memcpy(winner, tempwinner, 5*sizeof(int));
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", winner[i]);
+    }
+    printf("%d", winner[4]);
+}
