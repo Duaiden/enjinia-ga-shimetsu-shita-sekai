@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int lengthof(char* str){
+    int len = 0;
+    for (int i = 0; i < 100; i++) {
+        if('a' <= str[i] && str[i] <= 'z'){
+            len ++;
+        }
+        else break;
+    }
+    return len;
+}
+
+int _strcmp(char* str_s, char* str_t, int n){
+    int len_s = lengthof(str_s);
+    
+    for (int i = 0; i < n; i++) {
+        int str_i = (len_s-n+i != 0) ? len_s-n+i : 0;
+        
+        if(str_s[str_i] != str_t[i]){
+            return 0;
+        }
+    }
+    
+    return 1;
+}
+
+int main(void){
+    int n;
+    int counter_1 = 0, counter_2 = 0;
+    char *temp;
+    char *str;
+    
+    temp = (char*)malloc(100 * sizeof(char));
+    str = (char*)malloc(10000 * sizeof(char));
+    
+    scanf("%d", &n);
+    fgets(temp, sizeof(temp), stdin);
+
+    for (int i = 0; i < n; i++) {
+        fgets(temp, 100 * sizeof(char), stdin);
+        
+        int len_t = lengthof(temp);
+        int len_s = lengthof(str);
+        int min = (len_t <= len_s) ? len_t : len_s;
+        
+        for (int j = 1; j <= min; j++) {
+            if(_strcmp(str, temp, j) && counter_1 < j){
+                counter_1 = j;
+            }
+        }
+
+        for (int i = counter_1; i < len_t; i++) {
+            str[counter_2] = temp[i];
+            counter_2 ++;
+        }
+        counter_1 = 0;
+    }
+    printf("%s", str);
+}
