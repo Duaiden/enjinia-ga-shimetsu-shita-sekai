@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define _for(i,a,b) for(int i = (a);i < (b);i ++)
+#define pb push_back
+using namespace std;
+
+int main()
+{
+    int n;
+    while(~scanf("%d",&n))
+    {
+        string s[n],rnt;
+        _for(i,0,n)
+        {
+            cin >> s[i];
+        }
+        rnt += s[0];
+        _for(i,1,n)
+        {
+            int j = 0;
+            for(;j < rnt.size();j ++)
+                if(rnt[j]==s[i][0])
+                {
+                    int flag = 0;
+                    for(int k = 0;k < s[i].size() && j+k < rnt.size();k ++)
+                    {
+                        if(s[i][k]!=rnt[j+k])
+                        {
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    if(!flag&&s[i].size()>=rnt.size()-j)
+                    {
+                        break;
+                    }
+                }
+            string tmp;
+            _for(k,rnt.size()-j,s[i].size())
+                tmp += s[i][k];
+            rnt += tmp;
+        }
+        cout << rnt << endl;
+    } 
+    return 0;
+}
