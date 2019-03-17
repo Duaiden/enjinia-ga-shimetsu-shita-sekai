@@ -3,7 +3,6 @@
   C++ code from: https://www.cnblogs.com/Asurudo/p/10313059.html
   Created by Asurudo. Copyright belongs to Asurudo.
 */
-
 #include <bits/stdc++.h>
 #define _for(i,a,b) for(int i = (a),i##end=(b);i < i##end;i ++)
 #define pb push_back
