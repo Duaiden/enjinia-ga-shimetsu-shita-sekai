@@ -1,3 +1,8 @@
+/*
+  Disclaimer: I don't write this project's code
+  C++ code from: https://www.cnblogs.com/Asurudo/p/10313046.html
+  Created by Asurudo. Copyright belongs to Asurudo.
+*/
 #include <bits/stdc++.h>
 #define _for(i,a,b) for(int i = (a);i < (b);i ++)
 #define pb push_back
