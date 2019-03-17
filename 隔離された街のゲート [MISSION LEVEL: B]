@@ -15,7 +15,6 @@
   開発依頼書には、N 回の操作中にキャラクターが不正な座標にいることがないか判定するプログラムの作成が指示されています。 
   ここで不正な座標とは、マップ外の座標、すなわち格子上に存在しない座標すべてのことを指します。 
 */
-
 #include <stdio.h>
 
 int main(void){
@@ -48,10 +47,12 @@ int main(void){
             flag = 1;
         }
     }
+    
     if(flag){
         printf("invalid");
     }
     else{
         printf("valid");
     }
+    
 }
