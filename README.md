@@ -1,5 +1,4 @@
-# Enjinia_ga_shimetsu_shita_sekai
-LeetCode: No! エンジニアが死滅シタ世界: Yes!
+# LeetCode: No! エンジニアが死滅シタ世界: Yes!
 
 Some level solutions (from me) of the anime leetcode game「エンジニアが死滅シタ世界」.  
 The codes are written in C.  
